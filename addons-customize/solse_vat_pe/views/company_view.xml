@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="view_company_form">
+      <field name="name">res.company.form.inherit</field>
+      <field name="model">res.company</field>
+      <field name="inherit_id" ref="base.view_company_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//sheet/notebook/page" position="after">
+          <page string="Servicio busqueda">
+            <group>
+              <group>
+                <field name="busqueda_ruc"/>
+                <field name="busqueda_dni"/>
+                <field name="token_apiperu" attrs="{'invisible': [('busqueda_ruc', '!=', 'apiperu'), ('busqueda_dni', '!=', 'apiperu')], 'required': ['|',('busqueda_ruc', '=', 'apiperu'), ('busqueda_dni', '=', 'apiperu')]}"/>
+              </group>
+            </group>
+          </page>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>
