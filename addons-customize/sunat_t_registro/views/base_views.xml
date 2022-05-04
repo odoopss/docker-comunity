@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_contract_inherit_t_register" model="ir.ui.view">
+        <field name="name">hr.contract.inherit.t.register</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='hr_responsible_id']" position="after">
+                <field name="displacemnent"/>
+                <field name="employer_id" attrs="{'invisible': [('displacemnent', '=', False)]}"/>
+                <field name="date_from_displacement" attrs="{'invisible': [('displacemnent', '=', False)]}"/>
+                <field name="date_to_displacement" attrs="{'invisible': [('displacemnent', '=', False)]}"/>
+                <field name="risk_activities" attrs="{'invisible': [('displacemnent', '=', False)]}"/>
+                <field name="given_service" attrs="{'invisible': [('displacemnent', '=', False)]}"/>
+                <field name="worker_type_pensioner_provider"/>
+            </xpath>
+            <xpath expr="//field[@name='variable_payment_id']" position="after">
+                <field name="periodicity"/>
+            </xpath>
+            <xpath expr="//field[@name='structure_type_id']" position="after">
+                <field name="work_category"/>
+            </xpath>
+            <xpath expr="//field[@name='is_practitioner']" position="after">
+                <field name="type_formative_modality" attrs="{'invisible': [('is_practitioner', '=', False)]}"/>
+                <field name="health_insurance_contract" attrs="{'invisible': [('is_practitioner', '=', False)]}"/>
+                <field name="occupation_training_modality" attrs="{'invisible': [('is_practitioner', '=', False)]}"/>
+                <field name="mother_responsability" attrs="{'invisible': [('is_practitioner', '=', False)]}"/>
+                <field name="type_professional_center" attrs="{'invisible': [('is_practitioner', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_address_t_registro_1_form" model="ir.ui.view">
+        <field name="name">view_partner_address_t_1_registro_form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="l10n_pe.pe_partner_address_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='l10n_pe_district']" position="before">
+                <field name="road_type" placeholder="Tipo de Vía"/>
+                <field name="road_name" placeholder="Nombre de Vía"/>
+                <field name="road_number" placeholder="Número de Vía"/>
+                <field name="road_departament" placeholder="Departamento"/>
+                <field name="road_inside" placeholder="Interior"/>
+                <field name="road_mz" placeholder="Manzana"/>
+                <field name="road_batch" placeholder="Lote"/>
+                <field name="road_km" placeholder="Kilómetro"/>
+                <field name="road_block" placeholder="Block"/>
+                <field name="road_stage" placeholder="Etapa"/>
+                <field name="zone_type" placeholder="Tipo de Zona"/>
+                <field name="zone_name" placeholder="Nombre de Zona"/>
+                <field name="zone_reference" placeholder="Referencia"/>
+                <field name="zone_ubigeo" placeholder="Ubígeo"/>
+
+                <field name="address_2" placeholder="Dirección 2"/>
+
+                <field name="road_type_2" placeholder="Tipo de Vía 2"/>
+                <field name="road_name_2" placeholder="Nombre de Vía 2"/>
+                <field name="road_number_2" placeholder="Número de Vía 2"/>
+                <field name="road_departament_2" placeholder="Departamento 2"/>
+                <field name="road_inside_2" placeholder="Interior 2"/>
+                <field name="road_mz_2" placeholder="Manzana 2"/>
+                <field name="road_batch_2" placeholder="Lote 2"/>
+                <field name="road_km_2" placeholder="Kilómetro 2"/>
+                <field name="road_block_2" placeholder="Block 2"/>
+                <field name="road_stage_2" placeholder="Etapa 2"/>
+                <field name="zone_type_2" placeholder="Tipo de Zona 2"/>
+                <field name="zone_name_2" placeholder="Nombre de Zona 2"/>
+                <field name="zone_reference_2" placeholder="Referencia 2"/>
+                <field name="zone_ubigeo_2" placeholder="Ubígeo 2"/>
+                <field name="indicator_essalud" placeholder="Indicador de centro asistencial Essalud"/>
+
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_res_country_extended_form_t_registro" model="ir.ui.view">
+        <field name="name">view_res_country_extended_form_t_registro</field>
+        <field name="model">res.country</field>
+        <field name="inherit_id" ref="base.view_country_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='code']" position="after">
+                <field name="cod_pas_only"/>
+                <field name="nacionality_code_rc"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_employee_view_form_inherit_sunat_t_regist" model="ir.ui.view">
+        <field name="name">hr.employee.view.form.sunat.t.regist</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='personal_information']/group/group[last()-6]" position="inside">
+                <field name="sctr"/>
+                <field name="sctr_salud"/>
+            </xpath>
+            <xpath expr="//notebook/page[@name='personal_information']/group" position="inside">
+                <group string="Situación" name="situation">
+                    <group>
+                        <field name="situation"/>
+                    </group>
+                </group>
+                <group string="Rentas de 5ta categoría exoneradas" name="rent_category">
+                    <group>
+                        <field name="rent_category"/>
+                    </group>
+                </group>
+                <group string="Convenio para evitar la doble tributación" name="double_taxation">
+                    <group>
+                        <field name="double_taxation"/>
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='health_regime_id']" position="after">
+                <field name="category_employee"/>
+                <field name="inv_eps" invisible="1"/>
+                <field name="eps_services_propios" attrs="{'invisible':[('inv_eps','not in', ['01','03'])]}"/>
+            </xpath>
+            <xpath expr="//field[@name='academic_degree_id']" position="after">
+                <field name="edu_bool" invisible="1"/>
+                <field name="edu_inst" attrs="{'invisible':[('edu_bool','not in', ['11','13'])]}"/>
+                <field name="edu_name_id"  options="{'no_quick_create':True,'no_create_edit':True}" attrs="{'invisible':[('edu_inst','not in', ['si'])]}"/>
+                <field name="edu_career_id"  options="{'no_quick_create':True,'no_create_edit':True , 'no_create': True}" attrs="{'invisible':[('edu_inst','not in', ['si'])]}"/>
+                <field name="edu_year_id"   options="{'no_quick_create':True,'no_create_edit':True, 'no_create': True}" widget="selection" attrs="{'invisible':[('edu_inst','not in', ['si'])]}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

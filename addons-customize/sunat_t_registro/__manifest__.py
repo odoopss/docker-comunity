@@ -1,0 +1,32 @@
+{
+    'name': 'Sunat T-Registro',
+    'version': '14.0.1.0',
+    'author': 'Ganemo',
+    'website': 'https://www.ganemo.co',
+    'description': "",
+    'depends': [
+        'account',
+        'l10n_pe_edi',
+        'hr'
+    ],
+    'data': [
+        'data/international.industrial.classification.csv',
+        'data/ubigeo.reniec.object.csv',
+        'data/occupational.worker.category.csv',
+        'data/worker.type.pensioner.provider.csv',
+        'data/type.formative.modality.work.csv',
+        'data/occupation.work.personnel.training.modality.csv',
+        'data/zone.type.object.csv',
+        'data/road.type.object.csv',
+        'data/edu.career.object.csv',
+        'data/edu.name.object.csv',
+        'data/edu.year.graduation.object.csv',
+        'data/res_country.xml',
+        'security/ir.model.access.csv',
+        'views/base_views.xml',
+        'views/t_registro_views.xml',
+        'views/personal_views.xml',
+    ],
+    'installable': True,
+    'auto_install': False,
+}
