@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import pe_datas
+from . import pe_sunat_data

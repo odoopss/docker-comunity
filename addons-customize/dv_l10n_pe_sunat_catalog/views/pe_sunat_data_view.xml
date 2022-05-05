@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="view_pe_sunat_data_tree">
+      <field name="name">pe.sunat.data.tree</field>
+      <field name="model">pe.sunat.data</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="code"/>
+          <field name="table_code"/>
+          <field name="active"/>
+        </tree>
+      </field>
+    </record>
+
+	<record id="view_pe_sunat_data_from" model="ir.ui.view">
+        <field name="name">pe.sunat.data.form</field>
+        <field name="model">pe.sunat.data</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="un_ece_code"/>
+                    </group>
+                    <group>
+                    	<field name="value"/>
+                        <field name="table_code"/>
+                        <field name="active"/>
+                    </group>
+                </group>
+                <label for="description"/>
+                <field name="description" />
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_pe_sunat_data" model="ir.actions.act_window">
+        <field name="name">Catalogos SUNAT</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pe.sunat.data</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_pe_sunat_data_tree"/>
+        <field name="help">Display and manage the Peruvian Datas.</field>
+    </record>
+
+    <menuitem name="SUNAT" id="solse_cpe_menu_root" sequence="4" web_icon="solse_pe_catalogo,static/description/icon.png" />
+
+    <menuitem name="Configuracion" id="pe_cpe_configuration_menu" parent="solse_cpe_menu_root" sequence="100" />
+
+    <menuitem name="Catalogo SUNAT" id="pe_cpe_sunat_data_menu" parent="pe_cpe_configuration_menu" action="action_pe_sunat_data" sequence="2" />
+    
+    
+  </data>
+</odoo>

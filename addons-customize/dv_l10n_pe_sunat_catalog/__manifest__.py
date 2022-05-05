@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
-
 {
-    'name': "Catalogo SUNAT ",
+    'name': """
+        Gestión de Catálogos SUNAT Perú
+    """,
 
 	'summary': """
 		Catalogo SUNAT""",
@@ -16,6 +16,9 @@
     'live_test_url': 'https://demoperu.develogers.com',
     'license': 'LGPL-3',
 
+    'price': 44.99,
+    'currency': 'EUR',
+    
     'category': 'Invoice',
     'version': '1.0',
 
@@ -24,10 +27,11 @@
 		'l10n_pe',
 	],
     'data': [
-		'security/pe_datas_security.xml',
+		'security/pe_sunat_data_security.xml',
 		'security/ir.model.access.csv',
-		'data/pe_datas.xml',
-		'data/pe.datas.csv',
+		'data/pe_sunat_data.xml',
+		'data/pe.sunat.data.csv',
+        'views/pe_sunat_data_view.xml',
 	],
     
     'images': ['static/description/banner.gif'],
