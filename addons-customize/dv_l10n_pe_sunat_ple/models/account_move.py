@@ -78,7 +78,7 @@ class AccountMove(models.Model):
         return partner_vat
 
     def get_invoice_code(self):
-        invoice_code = self.l10n_latam_document_type_id.code
+        invoice_code = self.l10n_latam_document_type_id.code or '00'
         return str(invoice_code)
 
     def get_table_11_code(self):

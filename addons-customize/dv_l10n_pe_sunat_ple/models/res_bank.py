@@ -10,4 +10,4 @@ class Bank(models.Model) :
 
 	@api.model
 	def _get_pe_banco(self):
-		return self.env['pe.datas'].get_selection("PE.TABLA03")
+		return self.env['pe.sunat.data'].get_selection("PE.TABLA03")

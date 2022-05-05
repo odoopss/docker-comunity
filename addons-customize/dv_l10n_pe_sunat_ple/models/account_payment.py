@@ -10,4 +10,4 @@ class AccountPayment(models.Model) :
 
 	@api.model
 	def _get_pe_medio_pago(self):
-		return self.env['pe.datas'].get_selection("PE.TABLA01")
+		return self.env['pe.sunat.data'].get_selection("PE.TABLA01")
