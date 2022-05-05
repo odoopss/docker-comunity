@@ -8,6 +8,6 @@ class ProductTemplate(models.Model):
     
     @api.model
     def _get_codigo_osce(self):
-        return self.env['pe.datas'].get_selection("PE.CPE.CATALOG25")
+        return self.env['pe.sunat.data'].get_selection("PE.CPE.CATALOG25")
     
     pe_code_osce = fields.Selection('_get_codigo_osce', 'Código existencia OSCE')
