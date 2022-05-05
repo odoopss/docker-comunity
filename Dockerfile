@@ -1,6 +1,6 @@
 FROM odoo:14.0
 
-LABEL MAINTAINER Angel Asencios <am.angell98@gmail.com>
+LABEL MAINTAINER PRESICION SMART SERVICES <https://pssitcorp.com/>
 USER root
 RUN sudo pip3 install watchdog
 RUN sudo pip3 install paramiko
