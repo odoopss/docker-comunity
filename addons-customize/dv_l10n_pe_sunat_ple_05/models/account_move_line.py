@@ -3,7 +3,7 @@ from odoo import models, fields
 
 class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'
-        
+
     def ple_5_1_fields(self):
         ple_5_1 = []
         sunat_number = self.move_id.get_sunat_number()
@@ -27,7 +27,7 @@ class AccountMoveLine(models.Model):
             self.account_id.code.rstrip('0'),
         ])
         # 5-6
-        ple_5_1.extend(['', 
+        ple_5_1.extend(['',
                         self.analytic_account_id.code or ''
                         ])
         # 7

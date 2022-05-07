@@ -6,13 +6,13 @@ class AccountAccount(models.Model):
 
     @api.onchange('code')
     def _get_default_cash_account(self):
-        if self.code and len(self.code) >= 3 and self.code[:3] in ['101','102']:
+        if self.code and len(self.code) >= 3 and self.code[:3] in ['101', '102', '103']:
             is_cash_account = True
         else:
             is_cash_account = False
         self.is_cash_account = is_cash_account
-            
-    @api.onchange('code') 
+
+    @api.onchange('code')
     def _get_default_bank_account(self):
         if self.code and len(self.code) >= 3 and self.code[:3] in ['104']:
             is_bank_account = True

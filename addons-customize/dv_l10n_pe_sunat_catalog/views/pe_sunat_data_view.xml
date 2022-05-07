@@ -46,7 +46,7 @@
         <field name="help">Display and manage the Peruvian Datas.</field>
     </record>
 
-    <menuitem name="SUNAT" id="solse_cpe_menu_root" sequence="4" web_icon="solse_pe_catalogo,static/description/icon.png" />
+    <menuitem name="SUNAT" id="solse_cpe_menu_root" sequence="4" web_icon="dv_l10n_pe_sunat_catalog,static/description/icon.png" />
 
     <menuitem name="Configuracion" id="pe_cpe_configuration_menu" parent="solse_cpe_menu_root" sequence="100" />
 
