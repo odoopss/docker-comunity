@@ -43,6 +43,10 @@
                     name="analytic_account_id"
                     groups="analytic.group_analytic_accounting"
                 />
+                <field
+                    name="analytic_tag_ids"
+                    groups="analytic.group_analytic_accounting"
+                />
                 <field name="supplier_id" />
                 <field
                     name="company_id"
@@ -128,6 +132,11 @@
                                 attrs="{'readonly': [('is_editable','=', False)]}"
                             />
                             <field
+                                name="analytic_tag_ids"
+                                groups="analytic.group_analytic_accounting"
+                                attrs="{'readonly': [('is_editable','=', False)]}"
+                            />
+                            <field
                                 name="date_required"
                                 attrs="{'readonly': [('is_editable','=', False)]}"
                             />
@@ -168,9 +177,9 @@
                                 mode="tree"
                                 attrs="{'readonly': [('purchase_state', 'in', ('cancel'))]}"
                                 domain="[('product_id', '=', product_id)]"
-                                context="{'form_view_ref' : 'purchase_order_line_form2_sub',
-                                             'tree_view_ref' : 'purchase_order_line_tree_sub',
-                                             'search_view_ref' : 'purchase_order_line_search_sub'}"
+                                context="{'form_view_ref' : 'purchase_request.purchase_order_line_form2_sub',
+                                             'tree_view_ref' : 'purchase_request.purchase_order_line_tree_sub',
+                                             'search_view_ref' : 'purchase_request.purchase_order_line_search_sub'}"
                             />
                         </page>
                         <page name="allocations" string="Allocations">
