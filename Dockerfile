@@ -2,8 +2,5 @@ FROM odoo:14.0
 
 LABEL MAINTAINER PRESICION SMART SERVICES <https://pssitcorp.com/>
 USER root
-
-#RUN apt-get update && \ apt-get -y install sudo
-RUN apt-get update && \
-    apt-get install \
-        python3-pytesseract \
+RUN apt update
+RUN apt install curl python3-pytesseract nano -y
