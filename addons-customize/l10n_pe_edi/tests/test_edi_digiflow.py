@@ -2,6 +2,8 @@
 from odoo.tests import tagged
 from .common import TestPeEdiCommon
 
+from datetime import date
+
 @tagged('post_install', '-at_install', '-standard', 'external')
 class TestEdiDigiflow(TestPeEdiCommon):
 
@@ -12,7 +14,8 @@ class TestEdiDigiflow(TestPeEdiCommon):
         cls.company_data['company'].l10n_pe_edi_provider = 'digiflow'
 
     def test_10_invoice_edi_flow(self):
-        move = self._create_invoice()
+        today = date.today()
+        move = self._create_invoice(invoice_date=today, date=today)
         move.action_post()
 
         # Send
@@ -34,7 +37,8 @@ class TestEdiDigiflow(TestPeEdiCommon):
         self.assertRecordValues(move, [{'edi_state': 'cancelled'}])
 
     def test_20_refund_edi_flow(self):
-        move = self._create_refund()
+        today = date.today()
+        move = self._create_refund(invoice_date=today, date=today)
         (move.reversed_entry_id + move).action_post()
 
         # Send
@@ -56,7 +60,8 @@ class TestEdiDigiflow(TestPeEdiCommon):
         self.assertRecordValues(move, [{'edi_state': 'cancelled'}])
 
     def test_30_debit_note_edi_flow(self):
-        move = self._create_debit_note()
+        today = date.today()
+        move = self._create_debit_note(invoice_date=today, date=today)
         (move.debit_origin_id + move).action_post()
 
         # Send
